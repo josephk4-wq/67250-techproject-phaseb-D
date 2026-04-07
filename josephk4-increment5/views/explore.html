@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and responsive setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>MonoMuse | Explore</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- jQuery + custom JS for interactivity -->
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+    <script src="../static/script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Site header -->
+        <header class="header">
+            <h1>MonoMuse</h1>
+        </header>
+
+        <!-- Navigation bar -->
+        <nav id="navbar" class="nav_bar">
+            <!-- Links connect all site pages -->
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="tickets.html">Tickets</a>
+            <a href="checkout.html">Checkout</a>
+
+            <!-- Mobile menu toggle -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
+        </nav>
+
+        <main class="main">
+
+            <!-- Logo section -->
+            <div class="page-logo-wrap">
+                <img id="logo" src="../static/pokemon-logo.png" alt="MonoMuse Logo">
+            </div>
+
+            <!-- Slideshow showcasing exploration areas -->
+            <div id="exploreSlideshow" class="slideshow">
+
+                <!-- Slides -->
+                <div class="slide">
+                    <img src="../static/explore-charizard.jpg" alt="Explore slide 1">
+                    <div class="caption">Digital Discovery Hall</div>
+                </div>
+
+                <div class="slide">
+                    <img src="../static/explore-lapras.jpg" alt="Explore slide 2">
+                    <div class="caption">Immersive Media Environments</div>
+                </div>
+
+                <div class="slide">
+                    <img src="../static/explore-bulbasaur.jpg" alt="Explore slide 3">
+                    <div class="caption">Creative Learning Spaces</div>
+                </div>
+
+                <!-- Navigation controls -->
+                <button class="prev" onclick="plusSlides('exploreSlideshow', -1)">❮</button>
+                <button class="next" onclick="plusSlides('exploreSlideshow', 1)">❯</button>
+            </div>
+
+            <!-- Section intro -->
+            <h2 class="section-title">Explore MonoMuse</h2>
+            <p class="intro-text">
+                Travel through themed spaces designed around creativity, interactivity, and visual storytelling.
+            </p>
+
+            <!-- Divider -->
+            <div class="yellow-line"></div>
+
+            <!-- Two-column feature cards -->
+            <div class="card-grid two-col">
+                <div class="card">
+                    <h3>Digital Origins</h3>
+                    <p>Explore displays that show how museum experiences can evolve through media and design.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern Installations</h3>
+                    <p>Experience projection, animation, and interactive exhibits across different gallery zones.</p>
+                </div>
+            </div>
+
+            <!-- Milestones list -->
+            <h2 class="section-title">Milestones</h2>
+            <ul>
+                <li>Interactive exhibit hall featuring themed digital installations</li>
+                <li>Rotating gallery with changing visual displays</li>
+                <li>Research and education corner with museum learning content</li>
+                <li>Visitor challenge zone with interactive activities</li>
+            </ul>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+
+    </div>
+</body>
+</html>

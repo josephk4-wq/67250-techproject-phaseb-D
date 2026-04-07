@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and responsive viewport setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title shown in browser tab -->
+    <title>MonoMuse | Tickets</title>
+
+    <!-- Main stylesheet for layout, colors, and design -->
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- jQuery library for handling DOM interactions -->
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+
+    <!-- Custom JavaScript file for slideshow, form behavior, and interactions -->
+    <script src="../static/script.js" defer></script>
+</head>
+<body>
+    <!-- Main container wrapping entire page -->
+    <div class="container">
+
+        <!-- Header displaying site name -->
+        <header class="header">
+            <h1>MonoMuse</h1>
+        </header>
+
+        <!-- Navigation bar linking all pages -->
+        <nav id="navbar" class="nav_bar">
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="tickets.html">Tickets</a>
+            <a href="checkout.html">Checkout</a>
+
+            <!-- Mobile menu toggle icon -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
+        </nav>
+
+        <!-- Main content section -->
+        <main class="main">
+
+            <!-- Logo section -->
+            <div class="page-logo-wrap">
+                <img id="logo" src="../static/pokemon-logo.png" alt="MonoMuse Logo">
+            </div>
+
+            <!-- Slideshow displaying ticket-related visuals -->
+            <div id="ticketSlideshow" class="slideshow">
+
+                <!-- Individual slides -->
+                <div class="slide">
+                    <img src="../static/tickets-pokemon.jpg" alt="Ticket slide 1">
+                    <div class="caption">Plan Your Visit</div>
+                </div>
+
+                <div class="slide">
+                    <img src="../static/monomuse-museum.jpg" alt="Ticket slide 2">
+                    <div class="caption">Choose Your Date</div>
+                </div>
+
+                <div class="slide">
+                    <img src="../static/hero-pikachu.jpg" alt="Ticket slide 3">
+                    <div class="caption">Reserve Your Experience</div>
+                </div>
+
+                <!-- Slideshow navigation buttons -->
+                <button class="prev" onclick="plusSlides('ticketSlideshow', -1)">❮</button>
+                <button class="next" onclick="plusSlides('ticketSlideshow', 1)">❯</button>
+            </div>
+
+            <!-- Section title and description -->
+            <h2 class="section-title">Buy Tickets</h2>
+            <p class="intro-text">Select a visit date and ticket type below.</p>
+
+            <!-- Ticket options table -->
+            <table>
+
+                <!-- Table header -->
+                <tr>
+                    <th>Date</th>
+                    <th>Ticket Type</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+
+                <!-- Each row represents a ticket option -->
+                <tr>
+                    <td>April 12, 2026</td>
+                    <td>General Admission</td>
+                    <td>$18</td>
+
+                    <!-- Button triggers JS to populate purchase form -->
+                    <td>
+                        <button type="button" onclick="showForm('April 12, 2026', 'General Admission', '$18')">
+                            Buy Now
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>April 19, 2026</td>
+                    <td>Student Admission</td>
+                    <td>$12</td>
+                    <td>
+                        <button type="button" onclick="showForm('April 19, 2026', 'Student Admission', '$12')">
+                            Buy Now
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>April 26, 2026</td>
+                    <td>VIP Admission</td>
+                    <td>$25</td>
+                    <td>
+                        <button type="button" onclick="showForm('April 26, 2026', 'VIP Admission', '$25')">
+                            Buy Now
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Purchase form (dynamically shown after clicking Buy Now) -->
+            <form id="purchaseForm">
+
+                <h2>Complete Your Ticket Request</h2>
+
+                <!-- Instructional note -->
+                <p class="small-note">This appears when the visitor clicks Buy Now.</p>
+
+                <!-- User input fields -->
+                <label for="buyerName">Full Name</label>
+                <input type="text" id="buyerName" name="buyerName" required>
+
+                <label for="buyerEmail">Email</label>
+                <input type="email" id="buyerEmail" name="buyerEmail" required>
+
+                <label for="buyerPhone">Phone Number</label>
+                <input type="tel" id="buyerPhone" name="buyerPhone">
+
+                <!-- Ticket quantity input -->
+                <label for="ticketCount">Number of Tickets</label>
+                <input type="number" id="ticketCount" name="ticketCount" min="1" required>
+
+                <!-- Auto-filled fields based on user selection -->
+                <label for="selectedDate">Selected Date</label>
+                <input type="text" id="selectedDate" name="selectedDate" readonly>
+
+                <label for="selectedType">Selected Ticket Type</label>
+                <input type="text" id="selectedType" name="selectedType" readonly>
+
+                <label for="selectedPrice">Selected Price</label>
+                <input type="text" id="selectedPrice" name="selectedPrice" readonly>
+
+                <!-- Dropdown for choosing entry time -->
+                <label for="visitTime">Preferred Entry Time</label>
+                <select id="visitTime" name="visitTime">
+                    <option>10:00 AM</option>
+                    <option>12:00 PM</option>
+                    <option>2:00 PM</option>
+                    <option>4:00 PM</option>
+                </select>
+
+                <!-- Additional notes section -->
+                <label for="notes">Special Requests</label>
+                <textarea id="notes" name="notes" placeholder="Add any accessibility or visit notes here"></textarea>
+
+                <br><br>
+
+                <!-- Submit button triggers JS submission logic -->
+                <button type="button" onclick="submitPurchase()">Submit Ticket Request</button>
+            </form>
+        </main>
+
+        <!-- Footer with dynamically generated copyright -->
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+
+    </div>
+</body>
+</html>
