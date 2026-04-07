@@ -141,3 +141,32 @@ window.onload = function () {
     initSlideshows();
     initMap();
 };
+
+function calculateTotal() {
+    var quantity = document.getElementById("quantity").value;
+
+    var pricePerTicket = 15; // you can change if needed
+
+    var total = quantity * pricePerTicket;
+
+    if (!quantity || quantity <= 0) {
+        total = 0;
+    }
+
+    document.getElementById("totalPrice").innerText = total;
+}
+
+function submitCheckout() {
+    var name = document.getElementById("name").value;
+    var quantity = document.getElementById("quantity").value;
+    var total = document.getElementById("totalPrice").innerText;
+
+    if (!name || !quantity) {
+        alert("Please fill out required fields.");
+        return;
+    }
+
+    document.getElementById("confirmationMessage").innerText =
+        "Thank you, " + name + "! Your order for " + quantity +
+        " ticket(s) has been placed. Total: $" + total;
+}
