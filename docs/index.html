@@ -1,92 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata for browser and SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Joseph Kim">
     <meta name="description" content="MonoMuse home page">
+    
+    <!-- Page title shown in browser tab -->
     <title>MonoMuse | Home</title>
 
+    <!-- Main stylesheet for layout, colors, and design -->
     <link rel="stylesheet" href="./static/style.css">
+
+    <!-- jQuery library for DOM manipulation and interactions -->
     <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+
+    <!-- Custom JavaScript file for interactivity (menu toggle, slideshow, etc.) -->
     <script src="./static/script.js" defer></script>
 
+    <!-- Leaflet CSS and JS for interactive map functionality -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
+
 <body>
+    <!-- Main container wrapping entire webpage -->
     <div class="container">
+
+        <!-- Header section displaying site title -->
         <header class="header">
             <h1>MonoMuse</h1>
         </header>
 
+        <!-- Navigation bar with links to all pages -->
         <nav id="navbar" class="nav_bar">
             <a href="index.html">Home</a>
             <a href="views/explore.html">Explore</a>
             <a href="views/exhibitions.html">Exhibitions</a>
             <a href="views/tickets.html">Tickets</a>
             <a href="views/checkout.html">Checkout</a>
+
+            <!-- Mobile menu icon triggers toggleMenu() in JS -->
             <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
         </nav>
 
+        <!-- Main content of homepage -->
         <main class="main">
+
+            <!-- Logo section -->
             <div class="page-logo-wrap">
                 <img id="logo" src="./static/pokemon-logo.png" alt="MonoMuse Logo">
             </div>
 
+            <!-- Welcome heading dynamically updated via JS -->
             <h2 id="greeting" class="section-title">Welcome!</h2>
+
+            <!-- Introductory description of the museum -->
             <p class="intro-text">
                 Welcome to MonoMuse, a contemporary museum experience blending digital exhibits,
                 interactive media, and themed visual storytelling.
             </p>
 
+            <!-- Short intro text (default visible) -->
             <p id="shortIntro">
                 Explore special collections, immersive displays, and creative installations.
             </p>
 
+            <!-- Extended intro text (shown when "Read More" is clicked) -->
             <p id="longIntro">
                 MonoMuse combines museum design with playful pop-culture inspired visuals, interactive
                 galleries, and rotating feature exhibits that make each visit feel unique.
             </p>
 
+            <!-- Buttons to toggle additional content -->
             <button id="readMore">Read More</button>
             <button id="readLess">Read Less</button>
 
+            <!-- Decorative divider line -->
             <div class="yellow-line"></div>
 
+            <!-- Slideshow container for featured images -->
             <div id="homeSlideshow" class="slideshow">
+
+                <!-- Individual slide -->
                 <div class="slide">
                     <img src="./static/monomuse-museum.jpg" alt="MonoMuse building">
                     <div class="caption">Welcome to MonoMuse</div>
                 </div>
+
                 <div class="slide">
                     <img src="./static/hero-pikachu.jpg" alt="Featured digital exhibit">
                     <div class="caption">Featured Interactive Exhibit</div>
                 </div>
+
                 <div class="slide">
                     <img src="./static/hero-eevee.jpg" alt="Creative gallery">
                     <div class="caption">Rotating Creative Gallery</div>
                 </div>
+
                 <div class="slide">
                     <img src="./static/hero-snorlax.jpg" alt="Immersive installation">
                     <div class="caption">Immersive Installation Hall</div>
                 </div>
 
+                <!-- Navigation buttons for slideshow -->
                 <button class="prev" onclick="plusSlides('homeSlideshow', -1)">❮</button>
                 <button class="next" onclick="plusSlides('homeSlideshow', 1)">❯</button>
             </div>
 
+            <!-- Grid of feature cards highlighting sections -->
             <div class="card-grid">
+
                 <div class="card">
                     <img src="./static/hero-pikachu.jpg" alt="Featured exhibit">
                     <h3>Featured Exhibit</h3>
                     <p>Discover high-energy visual installations and audience interaction zones.</p>
                 </div>
+
                 <div class="card">
                     <img src="./static/hero-eevee.jpg" alt="Creative gallery">
                     <h3>Creative Gallery</h3>
                     <p>See evolving visual exhibits inspired by character design and storytelling.</p>
                 </div>
+
                 <div class="card">
                     <img src="./static/hero-snorlax.jpg" alt="Relaxed lounge">
                     <h3>Visitor Lounge</h3>
@@ -94,20 +131,25 @@
                 </div>
             </div>
 
+            <!-- Divider line for visual separation -->
             <div class="yellow-line"></div>
 
+            <!-- Embedded YouTube video for engagement -->
             <h2 class="section-title">Featured Museum Video</h2>
             <iframe src="https://www.youtube.com/embed/JuYeHPFR3f0?si=SE9gukk_LtS5fwPe"
                     title="Museum video"
                     allowfullscreen></iframe>
 
+            <!-- Map section showing museum location -->
             <h2 class="section-title">Visit Us</h2>
             <div id="map"></div>
         </main>
 
+        <!-- Footer with dynamically generated copyright -->
         <footer class="footer">
             <p id="copyYear"></p>
         </footer>
+
     </div>
 </body>
 </html>
