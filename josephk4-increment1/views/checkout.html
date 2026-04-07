@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Joseph Kim">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse checkout page">
+  <title>Checkout | MonoMuse</title>
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <div class="main">
+    <form>
+      <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required>
+      </p>
+
+      <p>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+      </p>
+
+      <p>
+        <label for="quantity">Ticket Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+      </p>
+
+      <p>
+        <input type="submit" value="Submit">
+      </p>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 MonoMuse. All rights reserved.</p>
+  </footer>
+</body>
+</html>

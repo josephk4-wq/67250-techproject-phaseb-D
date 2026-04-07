@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joseph Kim">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse tickets page">
+    <title>Tickets | MonoMuse</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+    <div class="container">
+
+        <header class="header">
+            <h1>MonoMuse</h1>
+        </header>
+
+        <nav class="nav_bar">
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="tickets.html">Tickets</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+
+        <main class="main">
+            <img id="logo" src="../static/monomuselogo.png" alt="Monomuse Logo">
+
+            <h2>Buy Tickets</h2>
+
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Ticket Type</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>April 12, 2026</td>
+                    <td>Adult</td>
+                    <td>$18</td>
+                    <td><button type="button" onclick="showForm('April 12, 2026')">Buy Now</button></td>
+                </tr>
+                <tr>
+                    <td>April 19, 2026</td>
+                    <td>Student</td>
+                    <td>$10</td>
+                    <td><button type="button" onclick="showForm('April 19, 2026')">Buy Now</button></td>
+                </tr>
+                <tr>
+                    <td>April 26, 2026</td>
+                    <td>Member</td>
+                    <td>$15</td>
+                    <td><button type="button" onclick="showForm('April 26, 2026')">Buy Now</button></td>
+                </tr>
+            </table>
+
+            <form id="purchaseForm">
+                <p>
+                    <label for="buyerName">Name:</label><br>
+                    <input type="text" id="buyerName" name="buyerName" required>
+                </p>
+
+                <p>
+                    <label for="buyerEmail">Email:</label><br>
+                    <input type="email" id="buyerEmail" name="buyerEmail" required>
+                </p>
+
+                <p>
+                    <label for="ticketCount">Number of Tickets:</label><br>
+                    <input type="number" id="ticketCount" name="ticketCount" min="1" required>
+                </p>
+
+                <p>
+                    <label for="selectedDate">Selected Date:</label><br>
+                    <input type="text" id="selectedDate" name="selectedDate" readonly>
+                </p>
+
+                <p>
+                    <button type="button" onclick="submitPurchase()">Submit</button>
+                </p>
+            </form>
+        </main>
+
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+
+    </div>
+</body>
+</html>

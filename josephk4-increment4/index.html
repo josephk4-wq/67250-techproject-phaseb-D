@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joseph Kim">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse website redesign project">
+    <title>MonoMuse</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+    <script src="./static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+    <div class="container">
+
+        <header class="header">
+            <h1>MonoMuse</h1>
+        </header>
+
+        <nav class="nav_bar">
+            <a href="index.html">Home</a>
+            <a href="views/explore.html">Explore</a>
+            <a href="views/exhibitions.html">Exhibitions</a>
+            <a href="views/tickets.html">Tickets</a>
+            <a href="views/checkout.html">Checkout</a>
+        </nav>
+
+        <main class="main">
+            <h2 id="greeting">Welcome to the MonoMuse Museum</h2>
+
+            <img id="logo" src="./static/monomuselogo.png" alt="Monomuse Logo">
+
+            <h2>Welcome to MonoMuse</h2>
+            <p>
+                MonoMuse is a contemporary museum dedicated to exploring the intersection of art,
+                technology, and human creativity. Through immersive exhibitions, interactive installations,
+                and rotating collections, MonoMuse invites visitors to discover how digital innovation is
+                transforming the way we create, experience, and understand art.
+            </p>
+
+            <p>
+                <a href="views/tickets.html">Buy Tickets</a>
+            </p>
+
+            <p id="shortIntro">
+                Discover immersive exhibitions and creative technology experiences for all visitors.
+            </p>
+
+            <p id="longIntro">
+                MonoMuse offers interactive exhibitions, digital storytelling, creative coding displays,
+                and hands-on installations that invite guests to explore how innovation shapes art,
+                culture, and everyday life in new ways.
+            </p>
+
+            <button id="readMore">Read More</button>
+            <button id="readLess">Read Less</button>
+        </main>
+
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+
+    </div>
+</body>
+</html>
