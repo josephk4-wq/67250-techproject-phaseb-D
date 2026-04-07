@@ -1,3 +1,4 @@
+// Adds the current year automatically to the footer copyright text
 function addYear() {
     var yearText = document.getElementById("copyYear");
     if (yearText) {
@@ -5,6 +6,7 @@ function addYear() {
     }
 }
 
+// Sets a greeting message on the homepage based on the current time of day
 function setGreeting() {
     var greet = document.getElementById("greeting");
     if (!greet) return;
@@ -20,6 +22,7 @@ function setGreeting() {
     }
 }
 
+// Highlights the current page link in the navigation bar
 function ActiveNav() {
     var links = document.querySelectorAll("nav a");
     links.forEach(function(link) {
@@ -29,6 +32,7 @@ function ActiveNav() {
     });
 }
 
+// Toggles the mobile navigation menu on smaller screens
 function toggleMenu() {
     var nav = document.getElementById("navbar");
     if (!nav) return;
@@ -40,14 +44,18 @@ function toggleMenu() {
     }
 }
 
+// Runs jQuery only if the library is successfully loaded
 if (typeof $ !== "undefined") {
     $(document).ready(function () {
+
+        // Shows the longer introduction text and swaps button visibility
         $("#readMore").click(function () {
             $("#longIntro").show();
             $("#readLess").show();
             $("#readMore").hide();
         });
 
+        // Hides the longer introduction text and restores original button visibility
         $("#readLess").click(function () {
             $("#longIntro").hide();
             $("#readLess").hide();
@@ -56,6 +64,7 @@ if (typeof $ !== "undefined") {
     });
 }
 
+// Displays the hidden purchase form and fills in the selected ticket details
 function showForm(date, type, price) {
     var form = document.getElementById("purchaseForm");
     if (!form) return;
@@ -66,9 +75,11 @@ function showForm(date, type, price) {
     document.getElementById("selectedType").value = type;
     document.getElementById("selectedPrice").value = price;
 
+    // Smoothly scrolls the user down to the form
     form.scrollIntoView({ behavior: "smooth" });
 }
 
+// Validates required ticket purchase fields and shows a confirmation alert
 function submitPurchase() {
     var buyerName = document.getElementById("buyerName").value;
     var buyerEmail = document.getElementById("buyerEmail").value;
@@ -83,8 +94,10 @@ function submitPurchase() {
     alert("Thanks, " + buyerName + "! Your ticket request for " + selectedDate + " has been submitted.");
 }
 
+// Stores the current slide number for each slideshow on the site
 var slideIndexes = {};
 
+// Initializes all slideshows by setting each one to start at slide 1
 function initSlideshows() {
     var slideshows = document.getElementsByClassName("slideshow");
     for (var i = 0; i < slideshows.length; i++) {
@@ -94,11 +107,13 @@ function initSlideshows() {
     }
 }
 
+// Moves forward or backward through a slideshow
 function plusSlides(slideshowId, n) {
     slideIndexes[slideshowId] += n;
     showSlides(slideshowId, slideIndexes[slideshowId]);
 }
 
+// Displays the correct slide and hides all others
 function showSlides(slideshowId, n) {
     var slideshow = document.getElementById(slideshowId);
     if (!slideshow) return;
@@ -106,34 +121,43 @@ function showSlides(slideshowId, n) {
     var slides = slideshow.getElementsByClassName("slide");
     if (slides.length === 0) return;
 
+    // Loops back to first slide if user goes past the end
     if (n > slides.length) {
         slideIndexes[slideshowId] = 1;
     }
+
+    // Loops to last slide if user goes before the first slide
     if (n < 1) {
         slideIndexes[slideshowId] = slides.length;
     }
 
+    // Hide all slides
     for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
 
+    // Show only the active slide
     slides[slideIndexes[slideshowId] - 1].style.display = "block";
 }
 
+// Initializes the Leaflet map on the homepage if the map container exists
 function initMap() {
     if (document.getElementById("map") && typeof L !== "undefined") {
         var map = L.map("map").setView([40.444, -79.943], 13);
 
+        // Adds OpenStreetMap tiles as the map background
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             maxZoom: 19
         }).addTo(map);
 
+        // Adds a marker for the MonoMuse location in Pittsburgh
         L.marker([40.444, -79.943]).addTo(map)
             .bindPopup("MonoMuse - Pittsburgh")
             .openPopup();
     }
 }
 
+// Runs key page setup functions once the window fully loads
 window.onload = function () {
     addYear();
     setGreeting();
@@ -142,6 +166,7 @@ window.onload = function () {
     initMap();
 };
 
+// Calculates total checkout price based on ticket quantity
 function calculateTotal() {
     var quantity = document.getElementById("quantity").value;
 
@@ -149,6 +174,7 @@ function calculateTotal() {
 
     var total = quantity * pricePerTicket;
 
+    // Prevents invalid totals when quantity is empty or zero
     if (!quantity || quantity <= 0) {
         total = 0;
     }
@@ -156,6 +182,7 @@ function calculateTotal() {
     document.getElementById("totalPrice").innerText = total;
 }
 
+// Validates checkout form fields and displays a confirmation message
 function submitCheckout() {
     var name = document.getElementById("name").value;
     var quantity = document.getElementById("quantity").value;
